@@ -10,15 +10,6 @@ typedef struct image {
     unsigned int width, height;
 } Image;
 
-int pixel_igual(Pixel p1, Pixel p2) {
-    if (p1.r == p2.r &&
-        p1.g == p2.g &&
-        p1.b == p2.b)
-        return 1;
-    return 0;
-}
-
-
 Image escala_de_cinza(Image img) {
 
     for (unsigned int i = 0; i < img.height; ++i) {
@@ -108,6 +99,21 @@ Image cortar_imagem(Image img, int x, int y, int w, int h) {
     return cortada;
 }
 
+void imagePrint(Image img){
+  //Image print format
+  printf("P3\n");
+  printf("%u %u\n255\n", img.width, img.height);
+
+  for (unsigned int i = 0; i < img.height; ++i) {
+      for (unsigned int j = 0; j < img.width; ++j) {
+          printf("%hu %hu %hu ", img.pixel[i][j][0],
+                                 img.pixel[i][j][1],
+                                 img.pixel[i][j][2]);
+      }
+
+      printf("\n");
+  }
+}
 
 int main() {
     Image img;
@@ -230,20 +236,7 @@ int main() {
 
     }
 
-    // print type of image
-    printf("P3\n");
-    // print width height and color of image
-    printf("%u %u\n255\n", img.width, img.height);
+    imagePrint(img);
 
-    // print pixels of image
-    for (unsigned int i = 0; i < img.height; ++i) {
-        for (unsigned int j = 0; j < img.width; ++j) {
-            printf("%hu %hu %hu ", img.pixel[i][j][0],
-                                   img.pixel[i][j][1],
-                                   img.pixel[i][j][2]);
-
-        }
-        printf("\n");
-    }
     return 0;
 }
