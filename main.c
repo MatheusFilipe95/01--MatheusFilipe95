@@ -118,7 +118,6 @@ void imagePrint(Image img){
 int main() {
     Image img;
 
-    // read type of image
     char imagetype[4];
     scanf("%s", imagetype);
 
