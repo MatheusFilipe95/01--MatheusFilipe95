@@ -87,4 +87,6 @@ Cada pixel possui 3 componentes,
 o RGB, do inglês Red, Green e Blue (Vermelho, Verde e Azul).
 Cada componente varia de 0 a 255, sendo 0 a ausência daquela cor,
 e 255 a total presença daquela cor.
-
+```
+end of Readme
+```
